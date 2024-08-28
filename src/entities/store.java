@@ -91,15 +91,16 @@ public class store {
     }
 
     // ----- For users:
-    public static void adduser(userclass user) {
+    public static boolean adduser(userclass user) {
         if (user != null) {
             userclass.add(user);
+            return true;
         }
-        store.showerrormessage("Data not received!");
+        return false;
     }
 
     public static int searchuser(String email, String pass) {
-        for (int i = 0; i < productclass.size(); i++) {
+        for (int i = 0; i < userclass.size(); i++) {
             if (email.equals(userclass.get(i).getUserEmail()) && pass.equals(userclass.get(i).getUserPassword())) {
                 return 1; //means found;
             } else if (!email.equals(userclass.get(i).getUserEmail()) && pass.equals(userclass.get(i).getUserPassword())) {

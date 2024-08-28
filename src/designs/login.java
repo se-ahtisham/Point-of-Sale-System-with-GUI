@@ -206,19 +206,9 @@ public class login extends javax.swing.JFrame {
         jButton1.setText("SIGN UP");
         jButton1.setActionCommand("SIGN Up");
         jButton1.setBorder(null);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton1KeyPressed(evt);
             }
         });
 
@@ -283,20 +273,10 @@ public class login extends javax.swing.JFrame {
                 jTextField8MouseClicked(evt);
             }
         });
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
-            }
-        });
-        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField8KeyPressed(evt);
-            }
-        });
 
         jComboBox1.setBackground(new java.awt.Color(241, 241, 241));
         jComboBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(189, 189, 189));
+        jComboBox1.setForeground(new java.awt.Color(102, 102, 102));
         jComboBox1.setMaximumRowCount(6);
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Set Security Question", "What was the name of your first pet?", "What is your mother's maiden name?", "What is the name of the city where you were born?", "What was the name of your first school?", "What is your favorite book or movie?" }));
         jComboBox1.setToolTipText("");
@@ -348,11 +328,11 @@ public class login extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jPasswordField1)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addGap(27, 27, 27)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -398,45 +378,6 @@ public class login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:  
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        this.dispose();
-        new signin().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextField6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6KeyPressed
-
-    private void jTextField7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7KeyPressed
-
-    private void jTextField8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8KeyPressed
-
-    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1KeyPressed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
         if (!jTextField6.getText().equals("Name") && !jTextField6.getText().equals("")) {
             userclass user = new userclass();
             user.setUserName(jTextField6.getText());
@@ -448,10 +389,17 @@ public class login extends javax.swing.JFrame {
                         user.setUserQuestion(jComboBox1.getSelectedItem().toString());
                         if (!jTextField8.getText().equals("Security Answer") && !jTextField8.getText().equals(" ")) {
                             user.setUserAnswer(jTextField8.getText());
-                            store.adduser(user);
-                            this.setVisible(false);
-                            this.dispose();
-                            new dashboard().setVisible(true);
+                            boolean result = store.adduser(user);
+                            if (result) {
+                                this.setVisible(false);
+                                this.dispose();
+                                new dashboard().setVisible(true);
+                            }
+                            else
+                            {
+                                store.showerrormessage("Data not received!");
+                            }
+
                         } else {
                             store.showerrormessage("Enter security Answer!");
                         }
@@ -469,7 +417,31 @@ public class login extends javax.swing.JFrame {
         } else {
             store.showerrormessage("Name Error!");
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:  
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+        new signin().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6KeyPressed
+
+    private void jTextField7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7KeyPressed
 
     private void jTextField6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField6MouseClicked
         // TODO add your handling code here:
@@ -489,7 +461,7 @@ public class login extends javax.swing.JFrame {
 
     private void jTextField8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField8MouseClicked
         // TODO add your handling code here:
-        if (jTextField8.getText().equals("Security Question")) {
+        if (jTextField8.getText().equals("Security Answer")) {
             jTextField8.setText("");
             jTextField8.setForeground(Color.BLACK);
         }

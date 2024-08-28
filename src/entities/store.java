@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 public class store {
 
     private static ArrayList<productclass> productclass = new ArrayList<>();
+    private static ArrayList<userclass> userclass = new ArrayList<>();
 
     public static void showerrormessage(String msg) {
         JOptionPane.showMessageDialog(null, msg);
@@ -87,6 +88,27 @@ public class store {
                 store.showerrormessage("Product Updated");
             }
         }
+    }
+
+    // ----- For users:
+    public static void adduser(userclass user) {
+        if (user != null) {
+            userclass.add(user);
+        }
+        store.showerrormessage("Data not received!");
+    }
+
+    public static int searchuser(String email, String pass) {
+        for (int i = 0; i < productclass.size(); i++) {
+            if (email.equals(userclass.get(i).getUserEmail()) && pass.equals(userclass.get(i).getUserPassword())) {
+                return 1; //means found;
+            } else if (!email.equals(userclass.get(i).getUserEmail()) && pass.equals(userclass.get(i).getUserPassword())) {
+                return 2; // Means only found password
+            } else if (email.equals(userclass.get(i).getUserEmail()) && !pass.equals(userclass.get(i).getUserPassword())) {
+                return 3; // Means only found email
+            }
+        }
+        return -1;
     }
 
 }

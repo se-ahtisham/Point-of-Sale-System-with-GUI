@@ -112,4 +112,25 @@ public class store {
         return -1;
     }
 
+    public static boolean checkuseremail(String email) {
+        for (int i = 0; i < userclass.size(); i++) {
+            if (email.equals(userclass.get(i).getUserEmail())) {
+                return true; //means found;
+            }
+        }
+        return false;
+    }
+
+    public static String forgetpassworduser(String email, String question, String answer) {
+
+        for (int i = 0; i < userclass.size(); i++) {
+            if ((email.equals(userclass.get(i).getUserEmail()))
+                    && (question.equals(userclass.get(i).getUserQuestion()))
+                    && (answer.equals(userclass.get(i).getUserAnswer()))) {
+                System.out.println(userclass.get(i).getUserPassword());
+                return userclass.get(i).getUserPassword(); //means found // return pssword, 
+            }
+        }
+        return "Not correct user";
+    }
 }

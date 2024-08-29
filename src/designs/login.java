@@ -394,9 +394,7 @@ public class login extends javax.swing.JFrame {
                                 this.setVisible(false);
                                 this.dispose();
                                 new dashboard().setVisible(true);
-                            }
-                            else
-                            {
+                            } else {
                                 store.showerrormessage("Data not received!");
                             }
 
@@ -469,10 +467,20 @@ public class login extends javax.swing.JFrame {
 
     private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
         // TODO add your handling code here:
-        if (new String(jPasswordField1.getPassword()).equals("Password")) {
-            jPasswordField1.setText("");
-            jPasswordField1.setForeground(Color.BLACK);
+        if (!jTextField7.getText().equals("Email") && !jTextField7.getText().equals("")) {
+            boolean result = store.checkuseremail(jTextField7.getText());
+            if (result) {
+                store.showerrormessage("Email Already Register");
+            } else {
+                if (new String(jPasswordField1.getPassword()).equals("Password")) {
+                    jPasswordField1.setText("");
+                    jPasswordField1.setForeground(Color.BLACK);
+                }
+            }
+        } else {
+            store.showerrormessage("Enter Email");
         }
+
     }//GEN-LAST:event_jPasswordField1MouseClicked
 
     /**

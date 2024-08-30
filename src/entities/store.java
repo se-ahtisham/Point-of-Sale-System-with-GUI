@@ -59,6 +59,16 @@ public class store {
         return null;
     }
 
+    public static boolean serachstock(String name, int stock) {
+        for (int i = 0; i < productclass.size(); i++) {
+            if (productclass.get(i).getProductName().equalsIgnoreCase(name) &&
+                    stock <= productclass.get(i).getProductStock()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void delete(productclass obj) {
         productclass.remove(obj);
         store.showerrormessage("Delete SuccessFully!");

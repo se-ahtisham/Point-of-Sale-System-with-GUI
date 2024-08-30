@@ -612,11 +612,7 @@ public class searcproduct extends javax.swing.JFrame {
             productclass obj = store.serachProductByName(jTextField5.getText());
             if (obj != null) {
                 this.setSinglevalueontabel(obj);
-            } else {
-                store.showerrormessage("NO product entered");
-
-            }
-
+            } 
         } else {
             store.showerrormessage("Enter Product Name!");
         }
@@ -646,9 +642,6 @@ public class searcproduct extends javax.swing.JFrame {
             productclass obj = store.serachProductById(Integer.parseInt(jTextField9.getText()));
             if (obj != null) {
                 this.setSinglevalueontabel(obj);
-
-            } else {
-                store.showerrormessage("NO product entered");
 
             }
 

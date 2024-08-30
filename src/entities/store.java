@@ -61,12 +61,31 @@ public class store {
 
     public static boolean serachstock(String name, int stock) {
         for (int i = 0; i < productclass.size(); i++) {
-            if (productclass.get(i).getProductName().equalsIgnoreCase(name) &&
-                    stock <= productclass.get(i).getProductStock()) {
+            if (productclass.get(i).getProductName().equalsIgnoreCase(name)
+                    && stock <= productclass.get(i).getProductStock()) {
                 return true;
             }
         }
         return false;
+    }
+
+    public static boolean serachstockbyid(int id, int stock) {
+        for (int i = 0; i < productclass.size(); i++) {
+            if (productclass.get(i).getProductId() == id
+                    && stock <= productclass.get(i).getProductStock()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static String returnproductname(int id) {
+        for (int i = 0; i < productclass.size(); i++) {
+            if (productclass.get(i).getProductId() == id) {
+                return productclass.get(i).getProductName();
+            }
+        }
+        return null;
     }
 
     public static void delete(productclass obj) {

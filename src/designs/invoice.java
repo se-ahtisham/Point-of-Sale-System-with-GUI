@@ -352,7 +352,7 @@ public class invoice extends javax.swing.JFrame {
         jTextField22.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTextField22.setForeground(new java.awt.Color(255, 255, 255));
         jTextField22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField22.setText("Generate Bill");
+        jTextField22.setText("Confirmed");
         jTextField22.setBorder(null);
         jTextField22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTextField22.addMouseListener(new java.awt.event.MouseAdapter() {

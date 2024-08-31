@@ -9,6 +9,7 @@ import entities.store;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -197,6 +198,7 @@ public class invoice extends javax.swing.JFrame {
         jComboBox2.setBackground(new java.awt.Color(241, 241, 241));
         jComboBox2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(0, 102, 102));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "none" }));
         jComboBox2.setBorder(null);
         jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBox2.setFocusable(false);
@@ -314,11 +316,6 @@ public class invoice extends javax.swing.JFrame {
                 jTextField15MouseClicked(evt);
             }
         });
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
-            }
-        });
         jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField15KeyPressed(evt);
@@ -346,6 +343,7 @@ public class invoice extends javax.swing.JFrame {
         jComboBox3.setBackground(new java.awt.Color(241, 241, 241));
         jComboBox3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(0, 102, 102));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "none" }));
         jComboBox3.setBorder(null);
         jComboBox3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBox3.setFocusable(false);
@@ -354,7 +352,7 @@ public class invoice extends javax.swing.JFrame {
         jTextField22.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTextField22.setForeground(new java.awt.Color(255, 255, 255));
         jTextField22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField22.setText("Generate Invoice");
+        jTextField22.setText("Generate Bill");
         jTextField22.setBorder(null);
         jTextField22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTextField22.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -443,22 +441,12 @@ public class invoice extends javax.swing.JFrame {
         jTextField28.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTextField28.setForeground(new java.awt.Color(204, 204, 204));
         jTextField28.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField28.setText("03xxxxxx");
+        jTextField28.setText("03xxxxxxxxx");
         jTextField28.setBorder(null);
         jTextField28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTextField28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField28MouseClicked(evt);
-            }
-        });
-        jTextField28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField28ActionPerformed(evt);
-            }
-        });
-        jTextField28.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField28KeyPressed(evt);
             }
         });
 
@@ -487,16 +475,6 @@ public class invoice extends javax.swing.JFrame {
                 jTextField30MouseClicked(evt);
             }
         });
-        jTextField30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField30ActionPerformed(evt);
-            }
-        });
-        jTextField30.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField30KeyPressed(evt);
-            }
-        });
 
         jTextField31.setBackground(new java.awt.Color(242, 242, 242));
         jTextField31.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -508,16 +486,6 @@ public class invoice extends javax.swing.JFrame {
         jTextField31.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField31MouseClicked(evt);
-            }
-        });
-        jTextField31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField31ActionPerformed(evt);
-            }
-        });
-        jTextField31.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField31KeyPressed(evt);
             }
         });
 
@@ -533,14 +501,14 @@ public class invoice extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField28)
-                    .addComponent(jTextField29))
+                    .addComponent(jTextField29, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField31)
+                    .addComponent(jTextField31, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                     .addComponent(jTextField30))
                 .addGap(17, 17, 17))
         );
@@ -601,41 +569,44 @@ public class invoice extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(40, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(75, 75, 75)
+                                                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(66, 66, 66)
+                                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(75, 75, 75)
-                                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField15)))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                                        .addGap(115, 115, 115)
                                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(110, 110, 110)
-                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                        .addGap(118, 118, 118)
+                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(40, 40, 40))
         );
         jPanel4Layout.setVerticalGroup(
@@ -647,7 +618,7 @@ public class invoice extends javax.swing.JFrame {
                     .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -659,15 +630,15 @@ public class invoice extends javax.swing.JFrame {
                     .addComponent(jComboBox2)
                     .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(20, 20, 20)
                 .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                .addGap(29, 29, 29))
         );
 
         jPanel8.setBackground(new java.awt.Color(0, 102, 102));
@@ -1009,10 +980,9 @@ public class invoice extends javax.swing.JFrame {
 
     private void jTextField13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField13MouseClicked
         // TODO add your handling code here:
-        if (jTextField12.getText().equals("Search by ID")) {
-            jTextField13.setText("");
-            jTextField13.setForeground(Color.BLACK);
-        }
+        this.setVisible(false);
+        this.dispose();
+        new order().setVisible(true);
     }//GEN-LAST:event_jTextField13MouseClicked
 
     private void jTextField10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField10MouseClicked
@@ -1122,6 +1092,9 @@ public class invoice extends javax.swing.JFrame {
 
     private void jTextField22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField22MouseClicked
         // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();;
+        new confirmorder().setVisible(true);
     }//GEN-LAST:event_jTextField22MouseClicked
 
     private void jTextField23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField23MouseClicked
@@ -1166,47 +1139,61 @@ public class invoice extends javax.swing.JFrame {
 
     private void jTextField28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField28MouseClicked
         // TODO add your handling code here:
+        if (!jTextField30.getText().equals("Name")) {
+            if (jTextField28.getText().equals("03xxxxxxxxx")) {
+                jTextField28.setText("");
+                jTextField28.setForeground(Color.BLACK);
+            }
+        } else {
+            store.showerrormessage("Fill the Name Field");
+        }
     }//GEN-LAST:event_jTextField28MouseClicked
-
-    private void jTextField28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField28ActionPerformed
-
-    private void jTextField28KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField28KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField28KeyPressed
 
     private void jTextField29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField29MouseClicked
         // TODO add your handling code here:
+        if (!jComboBox2.getSelectedItem().equals("none")) {
+            if (jTextField29.getText().equals("xx-xxx-xxxxxxx-x")) {
+                jTextField29.setText("");
+                jTextField29.setForeground(Color.BLACK);
+            }
+        } else {
+            store.showerrormessage("First Select the items!");
+        }
+
     }//GEN-LAST:event_jTextField29MouseClicked
 
     private void jTextField30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField30MouseClicked
         // TODO add your handling code here:
+        if (!jTextField29.getText().equals("xx-xxx-xxxxxxx-x")) {
+            if (Pattern.compile("[0-9]+-[0-9]+-[0-9]+-[0-9]").matcher(jTextField29.getText()).matches()) {
+                if (jTextField30.getText().equals("Name")) {
+                    jTextField30.setText("");
+                    jTextField30.setForeground(Color.BLACK);
+                }
+            } else {
+                store.showerrormessage("Invalid ID Format!");
+            }
+        } else {
+            store.showerrormessage("Enter ID-CARD First!");
+        }
+
     }//GEN-LAST:event_jTextField30MouseClicked
 
     private void jTextField31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField31MouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here:     
+        if (!jTextField28.getText().equals("xxxxxxxxxxx")) {
+            if (Pattern.compile("\\d{11}").matcher(jTextField28.getText()).matches()) {
+                if (jTextField31.getText().equals("Address")) {
+                    jTextField31.setText("");
+                    jTextField31.setForeground(Color.BLACK);
+                }
+            } else {
+                store.showerrormessage("Invalid Phone# Format!");
+            }
+        } else {
+            store.showerrormessage("Fill Phone Number Field!");
+        }
     }//GEN-LAST:event_jTextField31MouseClicked
-
-    private void jTextField31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField31ActionPerformed
-
-    private void jTextField31KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField31KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField31KeyPressed
-
-    private void jTextField30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField30ActionPerformed
-
-    private void jTextField30KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField30KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField30KeyPressed
-
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
 
     private void jTextField15KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyPressed
         boolean results = false;

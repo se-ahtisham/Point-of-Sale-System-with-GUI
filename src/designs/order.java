@@ -51,6 +51,7 @@ public class order extends javax.swing.JFrame {
         jTextField17 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -159,7 +160,7 @@ public class order extends javax.swing.JFrame {
         jTextField14.setBackground(new java.awt.Color(255, 255, 255));
         jTextField14.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTextField14.setForeground(new java.awt.Color(0, 102, 102));
-        jTextField14.setText("REFUND ORDER");
+        jTextField14.setText("DELETE ORDER");
         jTextField14.setBorder(null);
         jTextField14.setFocusable(false);
         jTextField14.addActionListener(new java.awt.event.ActionListener() {

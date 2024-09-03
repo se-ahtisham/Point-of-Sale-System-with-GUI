@@ -20,7 +20,7 @@ public class newproduct extends javax.swing.JFrame {
 
     public newproduct() {
         initComponents();
-        this.setLocation(460, 220); 
+        this.setLocation(440,180);
     }
 
     @SuppressWarnings("unchecked")

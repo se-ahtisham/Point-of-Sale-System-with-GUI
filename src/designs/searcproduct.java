@@ -18,7 +18,7 @@ public class searcproduct extends javax.swing.JFrame {
      */
     public searcproduct() {
         initComponents();
-        this.setLocation(460, 220);
+        this.setLocation(490,200);
         store.dummyadd();
         addvalues();
     }

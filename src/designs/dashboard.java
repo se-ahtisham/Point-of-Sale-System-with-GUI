@@ -15,7 +15,7 @@ public class dashboard extends javax.swing.JFrame {
      */
     public dashboard() {
         initComponents();
-        this.setLocation(460,220);
+        this.setLocation(520,220);
     }
 
     /**

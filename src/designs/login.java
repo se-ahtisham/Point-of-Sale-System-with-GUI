@@ -22,7 +22,7 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
-        this.setLocation(460, 220);
+        this.setLocation(520,220);
     }
 
     /**

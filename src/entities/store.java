@@ -37,8 +37,10 @@ public class store {
         return productclass;
     }
 
+    
+    
+    
     public static productclass serachProductByName(String name) {
-
         for (int i = 0; i < productclass.size(); i++) {
             if (productclass.get(i).getProductName().equalsIgnoreCase(name)) {
                 return productclass.get(i);
@@ -68,6 +70,38 @@ public class store {
         }
         return false;
     }
+    
+    public static int returnid(String name, int stock) {
+        for (int i = 0; i < productclass.size(); i++) {
+            if (productclass.get(i).getProductName().equalsIgnoreCase(name)
+                    && stock <= productclass.get(i).getProductStock()) {
+                return  productclass.get(i).getProductId();
+            }
+        }
+        return -1;
+    }
+    
+     public static int returnprice (int id) {
+        for (int i = 0; i < productclass.size(); i++) {
+            if (id == productclass.get(i).getProductId()) {
+                return  (int) productclass.get(i).getProductRetailPrice();
+            }
+        }
+        return -1;
+    }
+    
+     public static String returnCatagory (int id) {
+        for (int i = 0; i < productclass.size(); i++) {
+            if (id == productclass.get(i).getProductId()) {
+                return  productclass.get(i).getProductCatagory();
+            }
+        }
+        return null;
+    }
+    
+    
+    
+    
 
     public static boolean serachstockbyid(int id, int stock) {
         for (int i = 0; i < productclass.size(); i++) {

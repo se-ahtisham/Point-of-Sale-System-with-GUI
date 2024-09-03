@@ -15,7 +15,7 @@ public class report extends javax.swing.JFrame {
      */
     public report() {
         initComponents();
-        this.setLocation(460,220);
+        this.setLocation(490,200);
     }
 
     /**

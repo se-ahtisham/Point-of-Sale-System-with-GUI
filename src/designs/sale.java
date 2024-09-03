@@ -15,7 +15,7 @@ public class sale extends javax.swing.JFrame {
      */
     public sale() {
         initComponents();
-         this.setLocation(460,220);
+        this.setLocation(490,200);
     }
 
     /**
@@ -246,6 +246,11 @@ public class sale extends javax.swing.JFrame {
         jTextField5.setBorder(null);
         jTextField5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTextField5.setFocusable(false);
+        jTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField5MouseClicked(evt);
+            }
+        });
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
@@ -522,6 +527,13 @@ public class sale extends javax.swing.JFrame {
     private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField17ActionPerformed
+
+    private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+        new order().setVisible(true);
+    }//GEN-LAST:event_jTextField5MouseClicked
 
     /**
      * @param args the command line arguments

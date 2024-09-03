@@ -21,7 +21,7 @@ public class deleteproduct extends javax.swing.JFrame {
      */
     public deleteproduct() {
         initComponents();
-        this.setLocation(460, 220);
+        this.setLocation(520,220);
         store.dummyadd();
         addvalues();
 

@@ -8,7 +8,7 @@ public class product extends javax.swing.JFrame {
 
     public product() {
         initComponents();
-        this.setLocation(460, 220);
+        this.setLocation(490,200);
     }
 
     @SuppressWarnings("unchecked")

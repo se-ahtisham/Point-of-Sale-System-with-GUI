@@ -21,7 +21,7 @@ public class updateproduct extends javax.swing.JFrame {
      */
     public updateproduct() {
         initComponents();
-        this.setLocation(460, 100);
+        this.setLocation(450,100);
         store.dummyadd();
         addvalues();
     }

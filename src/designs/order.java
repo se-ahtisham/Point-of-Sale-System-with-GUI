@@ -15,7 +15,7 @@ public class order extends javax.swing.JFrame {
      */
     public order() {
         initComponents();
-        this.setLocation(460, 220);
+        this.setLocation(520,220);
     }
 
     /**

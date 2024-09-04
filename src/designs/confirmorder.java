@@ -719,9 +719,9 @@ public class confirmorder extends javax.swing.JFrame {
 
     private void jTextField17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField17MouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+         this.setVisible(false);
         this.dispose();
-        new login().setVisible(true);
+        new signin().setVisible(true);
     }//GEN-LAST:event_jTextField17MouseClicked
 
     private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed

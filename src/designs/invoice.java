@@ -901,7 +901,7 @@ public class invoice extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         this.dispose();
-        new login().setVisible(true);
+        new signin().setVisible(true);
 
     }//GEN-LAST:event_jTextField20MouseClicked
 

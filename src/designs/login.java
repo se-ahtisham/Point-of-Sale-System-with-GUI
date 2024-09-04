@@ -8,6 +8,7 @@ import entities.productclass;
 import entities.store;
 import entities.userclass;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
@@ -22,7 +23,7 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
-        this.setLocation(520,220);
+        this.setLocation(520, 220);
     }
 
     /**
@@ -273,6 +274,11 @@ public class login extends javax.swing.JFrame {
                 jTextField8MouseClicked(evt);
             }
         });
+        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField8KeyPressed(evt);
+            }
+        });
 
         jComboBox1.setBackground(new java.awt.Color(241, 241, 241));
         jComboBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -482,6 +488,51 @@ public class login extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jPasswordField1MouseClicked
+
+    private void jTextField8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!jTextField6.getText().equals("Name") && !jTextField6.getText().equals("")) {
+                userclass user = new userclass();
+                user.setUserName(jTextField6.getText());
+                if ((Pattern.compile("[a-zA-Z0-9]+@gmail.com").matcher(jTextField7.getText()).matches()) && !jTextField7.getText().equals("")) {
+                    user.setUserEmail(jTextField7.getText());
+                    if (!new String(jPasswordField1.getPassword()).equals("Password") && !new String(jPasswordField1.getPassword()).equals(" ")) {
+                        user.setUserPassword(new String(jPasswordField1.getPassword()));
+                        if (!jComboBox1.getSelectedItem().toString().equals("Set Security Question")) {
+                            user.setUserQuestion(jComboBox1.getSelectedItem().toString());
+                            if (!jTextField8.getText().equals("Security Answer") && !jTextField8.getText().equals(" ")) {
+                                user.setUserAnswer(jTextField8.getText());
+                                boolean result = store.adduser(user);
+                                if (result) {
+                                    this.setVisible(false);
+                                    this.dispose();
+                                    new dashboard().setVisible(true);
+                                } else {
+                                    store.showerrormessage("Data not received!");
+                                }
+
+                            } else {
+                                store.showerrormessage("Enter security Answer!");
+                            }
+                        } else {
+                            store.showerrormessage("Select security Question!");
+                        }
+
+                    } else {
+                        store.showerrormessage("Password Entry Error!");
+                    }
+
+                } else {
+                    store.showerrormessage("Email Error!");
+                }
+            } else {
+                store.showerrormessage("Name Error!");
+            }
+
+        }
+
+    }//GEN-LAST:event_jTextField8KeyPressed
 
     /**
      * @param args the command line arguments

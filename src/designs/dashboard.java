@@ -175,11 +175,6 @@ public class dashboard extends javax.swing.JFrame {
                 jTextField16MouseClicked(evt);
             }
         });
-        jTextField16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField16ActionPerformed(evt);
-            }
-        });
 
         jPanel8.setPreferredSize(new java.awt.Dimension(130, 2));
 
@@ -573,15 +568,11 @@ public class dashboard extends javax.swing.JFrame {
 
     private void jTextField16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField16MouseClicked
         // TODO add your handling code here:
-         this.setVisible(false);
+           this.setVisible(false);
         this.dispose();
-        new login().setVisible(true);      
+        new signin().setVisible(true);      
         
     }//GEN-LAST:event_jTextField16MouseClicked
-
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
 
     /**
      * @param args the command line arguments

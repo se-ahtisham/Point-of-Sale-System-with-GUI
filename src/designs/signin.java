@@ -7,6 +7,7 @@ package designs;
 import designs.forgetpassword;
 import entities.store;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -15,7 +16,7 @@ public class signin extends javax.swing.JFrame {
 
     public signin() {
         initComponents();
-        this.setLocation(520,220);
+        this.setLocation(520, 220);
     }
 
     @SuppressWarnings("unchecked")
@@ -222,11 +223,6 @@ public class signin extends javax.swing.JFrame {
                 jButton4MouseClicked(evt);
             }
         });
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
 
         jTextField11.setEditable(false);
         jTextField11.setBackground(new java.awt.Color(255, 255, 255));
@@ -254,6 +250,11 @@ public class signin extends javax.swing.JFrame {
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordField1MouseClicked(evt);
+            }
+        });
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
             }
         });
 
@@ -335,10 +336,6 @@ public class signin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -404,6 +401,36 @@ public class signin extends javax.swing.JFrame {
         this.dispose();
         new forgetpassword().setVisible(true);
     }//GEN-LAST:event_jTextField11MouseClicked
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (Pattern.compile("[a-zA-Z0-9]+@gmail.com").matcher(jTextField7.getText()).matches()) {
+                int result = store.searchuser(jTextField7.getText(), new String(jPasswordField1.getPassword()));
+                switch (result) {
+                    case 1:
+                        this.setVisible(false);
+                        this.dispose();
+                        new dashboard().setVisible(true);
+                        break;
+                    case 2:
+                        store.showerrormessage("Wronge Email!");
+                        break;
+                    case 3:
+                        store.showerrormessage("Wronge Password!");
+                        break;
+                    case -1:
+                        store.showerrormessage("Not Found!");
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                store.showerrormessage("Invlid Email!");
+            }
+
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments

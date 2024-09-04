@@ -109,10 +109,8 @@ public class invoice extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jTextField16 = new javax.swing.JTextField();
         jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
         jTextField20 = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
 
@@ -164,6 +162,7 @@ public class invoice extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -724,25 +723,6 @@ public class invoice extends javax.swing.JFrame {
             }
         });
 
-        jTextField18.setEditable(false);
-        jTextField18.setBackground(new java.awt.Color(0, 102, 102));
-        jTextField18.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
-        jTextField18.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField18.setText("SALE");
-        jTextField18.setBorder(null);
-        jTextField18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTextField18.setFocusable(false);
-        jTextField18.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField18MouseClicked(evt);
-            }
-        });
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
-            }
-        });
-
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setPreferredSize(new java.awt.Dimension(130, 2));
 
@@ -759,25 +739,6 @@ public class invoice extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/side.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jTextField19.setEditable(false);
-        jTextField19.setBackground(new java.awt.Color(0, 102, 102));
-        jTextField19.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
-        jTextField19.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField19.setText("REPORTS");
-        jTextField19.setBorder(null);
-        jTextField19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTextField19.setFocusable(false);
-        jTextField19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField19MouseClicked(evt);
-            }
-        });
-        jTextField19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField19ActionPerformed(evt);
-            }
-        });
 
         jTextField20.setEditable(false);
         jTextField20.setBackground(new java.awt.Color(0, 102, 102));
@@ -829,9 +790,7 @@ public class invoice extends javax.swing.JFrame {
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -856,10 +815,6 @@ public class invoice extends javax.swing.JFrame {
                 .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -941,28 +896,6 @@ public class invoice extends javax.swing.JFrame {
     private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField17ActionPerformed
-
-    private void jTextField18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField18MouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        this.dispose();
-        new sale().setVisible(true);
-    }//GEN-LAST:event_jTextField18MouseClicked
-
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
-
-    private void jTextField19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField19MouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        this.dispose();
-        new report().setVisible(true);
-    }//GEN-LAST:event_jTextField19MouseClicked
-
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
 
     private void jTextField20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField20MouseClicked
         // TODO add your handling code here:
@@ -1205,7 +1138,6 @@ public class invoice extends javax.swing.JFrame {
                                             String findname = jTextField11.getText();
                                             int id = store.returnid(findname, Integer.parseInt(userquantity.getText()));
                                             orderProduct.setId(id);
-                                            System.out.println(id);
 
                                             int oldprice = store.returnprice(id);
                                             int newprice = oldprice * Integer.parseInt(userquantity.getText());
@@ -1213,9 +1145,10 @@ public class invoice extends javax.swing.JFrame {
                                             System.out.println(newprice);
                                             String cat = store.returnCatagory(id);
                                             orderProduct.setCategory(cat);
-                                            System.out.println(cat);
 
                                             newOrder.addOrder(orderProduct);
+                                            
+                                            store.updateStock(id, Integer.parseInt(userquantity.getText()));
 
                                             jComboBox2.addItem(jTextField11.getText());
                                             jComboBox2.setSelectedItem(jTextField11.getText());
@@ -1283,6 +1216,8 @@ public class invoice extends javax.swing.JFrame {
                                             System.out.println(cat);
 
                                             newOrder.addOrder(orderProduct);
+                                             store.updateStock(id, Integer.parseInt(userquantity.getText()));
+
                                             jComboBox2.addItem(name);
                                             jComboBox2.setSelectedItem(name);
                                             jComboBox3.addItem(userquantity.getText());
@@ -1376,8 +1311,6 @@ public class invoice extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;

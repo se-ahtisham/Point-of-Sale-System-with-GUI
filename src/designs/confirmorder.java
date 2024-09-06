@@ -14,24 +14,25 @@ import entities.orderproducts;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class confirmorder extends javax.swing.JFrame {
-    
+
     private ArrayList<orderproducts> objects;
-    
+
     public confirmorder() {
         initComponents();
         this.setLocation(440, 150);
-        objects = Order.getAllOrders();
+        objects = Order.getOrderproducts();
         addordervalues();
-        
+
     }
-    
+
     void addordervalues() {
-        ArrayList<orderproducts> objects = Order.getAllOrders();
+        ArrayList<orderproducts> objects = Order.getOrderproducts();
         DefaultTableModel model = (DefaultTableModel) finaltabel.getModel();
         model.setRowCount(0);
         for (int i = 0; i < objects.size(); i++) {
@@ -44,7 +45,7 @@ public class confirmorder extends javax.swing.JFrame {
             model.addRow(colarr);
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -55,10 +56,6 @@ public class confirmorder extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         finaltabel = new javax.swing.JTable();
-        jTextField25 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
-        jTextField30 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
         jTextField23 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
@@ -122,7 +119,7 @@ public class confirmorder extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,68 +157,6 @@ public class confirmorder extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(finaltabel);
         finaltabel.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-
-        jTextField25.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jTextField25.setForeground(new java.awt.Color(0, 102, 102));
-        jTextField25.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField25.setText("Order ID:");
-        jTextField25.setBorder(null);
-        jTextField25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTextField25.setFocusable(false);
-        jTextField25.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField25MouseClicked(evt);
-            }
-        });
-        jTextField25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField25ActionPerformed(evt);
-            }
-        });
-
-        jTextField29.setEditable(false);
-        jTextField29.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jTextField29.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField29.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField29.setBorder(null);
-        jTextField29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTextField29.setFocusable(false);
-        jTextField29.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField29MouseClicked(evt);
-            }
-        });
-
-        jTextField30.setEditable(false);
-        jTextField30.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jTextField30.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField30.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField30.setBorder(null);
-        jTextField30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTextField30.setFocusable(false);
-        jTextField30.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField30MouseClicked(evt);
-            }
-        });
-
-        jTextField26.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jTextField26.setForeground(new java.awt.Color(0, 102, 102));
-        jTextField26.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField26.setText("Customer ID:");
-        jTextField26.setBorder(null);
-        jTextField26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTextField26.setFocusable(false);
-        jTextField26.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField26MouseClicked(evt);
-            }
-        });
-        jTextField26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField26ActionPerformed(evt);
-            }
-        });
 
         jTextField23.setEditable(false);
         jTextField23.setBackground(new java.awt.Color(0, 102, 102));
@@ -328,7 +263,7 @@ public class confirmorder extends javax.swing.JFrame {
 
         jTextField33.setEditable(false);
         jTextField33.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jTextField33.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField33.setForeground(new java.awt.Color(0, 102, 102));
         jTextField33.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField33.setBorder(null);
         jTextField33.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -404,7 +339,7 @@ public class confirmorder extends javax.swing.JFrame {
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(153, 153, 153));
         jTextField1.setText("* Click on item to remove");
         jTextField1.setBorder(null);
@@ -420,17 +355,10 @@ public class confirmorder extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, Short.MAX_VALUE)
-                            .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                            .addGap(87, 87, 87)
                             .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -442,22 +370,17 @@ public class confirmorder extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addGap(19, 19, 19))
         );
 
         jPanel8.setBackground(new java.awt.Color(0, 102, 102));
@@ -719,7 +642,7 @@ public class confirmorder extends javax.swing.JFrame {
 
     private void jTextField17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField17MouseClicked
         // TODO add your handling code here:
-         this.setVisible(false);
+        this.setVisible(false);
         this.dispose();
         new signin().setVisible(true);
     }//GEN-LAST:event_jTextField17MouseClicked
@@ -728,40 +651,15 @@ public class confirmorder extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField17ActionPerformed
 
-    private void jTextField25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField25MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField25MouseClicked
-
-    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField25ActionPerformed
-
-    private void jTextField29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField29MouseClicked
-        // TODO add your handling code here:
-        if (jTextField29.getText().isEmpty()) {
-            jTextField29.setForeground(Color.BLACK);
-            jTextField29.setText(Order.getCustomerId() + "");
-            Order.setOrderId(Integer.parseInt(jTextField29.getText()));
-        }
-    }//GEN-LAST:event_jTextField29MouseClicked
-
-    private void jTextField26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField26MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField26MouseClicked
-
-    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField26ActionPerformed
-
     private void jTextField23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField23MouseClicked
         // TODO add your handling code here:
         int total = 0;
         for (int i = 0; i < objects.size(); i++) {
-            total += objects.get(i).getPrice();            
+            total += objects.get(i).getPrice();
         }
         jTextField33.setForeground(Color.BLACK);
-        jTextField33.setText(total+"");
-        
+        jTextField33.setText(total + "");
+
 
     }//GEN-LAST:event_jTextField23MouseClicked
 
@@ -791,7 +689,7 @@ public class confirmorder extends javax.swing.JFrame {
 
     private void jTextField32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField32MouseClicked
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_jTextField32MouseClicked
 
     private void jTextField31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField31ActionPerformed
@@ -807,31 +705,21 @@ public class confirmorder extends javax.swing.JFrame {
         if (jTextField36.getText().isEmpty()) {
             jTextField36.setForeground(Color.BLACK);
         }
-        
+
     }//GEN-LAST:event_jTextField36MouseClicked
 
     private void jTextField28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField28MouseClicked
         // TODO add your handling code here:
-
         this.setVisible(false);
         this.dispose();
-        new invoice().setVisible(true);
+        new order().setVisible(true);
     }//GEN-LAST:event_jTextField28MouseClicked
-
-    private void jTextField30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField30MouseClicked
-        // TODO add your handling code here:
-        if (jTextField30.getText().isEmpty()) {
-            jTextField30.setForeground(Color.BLACK);
-            jTextField30.setText(Order.getCustomerId() + "");
-        }
-
-    }//GEN-LAST:event_jTextField30MouseClicked
 
     private void finaltabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finaltabelMouseClicked
         // TODO add your handling code here:
         int selectedRow = finaltabel.getSelectedRow();
         String name = finaltabel.getValueAt(selectedRow, 1).toString();
-        
+
         if (selectedRow >= 0) {
             int response = JOptionPane.showConfirmDialog(null, "Do you want to delete " + name);
             if (response == 0) {
@@ -839,31 +727,27 @@ public class confirmorder extends javax.swing.JFrame {
                 DefaultTableModel model = (DefaultTableModel) finaltabel.getModel();
                 model.removeRow(selectedRow);
             }
-            
+
         }
-        
+
 
     }//GEN-LAST:event_finaltabelMouseClicked
 
     private void jTextField36KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField36KeyPressed
         // TODO add your handling code here:
-      if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-          if(!jTextField33.getText().isEmpty())
-          {
-              int first= Integer.parseInt(jTextField36.getText());
-              int second = Integer.parseInt(jTextField33.getText());
-              int total= first-second;
-              jTextField32.setForeground(Color.BLACK);
-              jTextField32.setText(total+"");
-          }
-          else
-          {
-              store.showerrormessage("Purchase the Products!!");
-          }
-      }
-        
-        
-        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!jTextField33.getText().isEmpty()) {
+                int first = Integer.parseInt(jTextField36.getText());
+                int second = Integer.parseInt(jTextField33.getText());
+                int total = first - second;
+                jTextField32.setForeground(Color.BLACK);
+                jTextField32.setText(total + "");
+            } else {
+                store.showerrormessage("Purchase the Products!!");
+            }
+        }
+
+
     }//GEN-LAST:event_jTextField36KeyPressed
 
     /**
@@ -919,13 +803,9 @@ public class confirmorder extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextField27;
     private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField31;
     private javax.swing.JTextField jTextField32;
     private javax.swing.JTextField jTextField33;

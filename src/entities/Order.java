@@ -4,78 +4,79 @@ import java.util.ArrayList;
 
 public class Order {
 
-    private static int orderId;
-    private static Long customerId;
-    private static String customerName;
-    private static String customerPhonenumber;
-    private static String customerAddress;
+    private int orderId;
+    private Long customerId;
+    private String customerName;
+    private String customerPhonenumber;
+    private String customerAddress;
 
     private static ArrayList<orderproducts> orderproducts = new ArrayList<>();
+  
 
     public Order() {
     }
 
-    public static int getOrderId() {
+    public Order(int orderId, Long customerId, String customerName, String customerPhonenumber, String customerAddress, ArrayList<orderproducts> orderproducts) {
+        this.orderId = orderId;
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.customerPhonenumber = customerPhonenumber;
+        this.customerAddress = customerAddress;
+        this.orderproducts = orderproducts != null ? orderproducts : new ArrayList<>();
+    }
+
+    public int getOrderId() {
         return orderId;
     }
 
-    public static void setOrderId(int orderId) {
-        Order.orderId = orderId;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
-    public static Long getCustomerId() {
+    public Long getCustomerId() {
         return customerId;
     }
 
-    public static void setCustomerId(Long customerId) {
-        Order.customerId = customerId;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
-    public static String getCustomerName() {
+    public String getCustomerName() {
         return customerName;
     }
 
-    public static void setCustomerName(String customerName) {
-        Order.customerName = customerName;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public static String getCustomerPhonenumber() {
+    public String getCustomerPhonenumber() {
         return customerPhonenumber;
     }
 
-    public static void setCustomerPhonenumber(String customerPhonenumber) {
-        Order.customerPhonenumber = customerPhonenumber;
+    public void setCustomerPhonenumber(String customerPhonenumber) {
+        this.customerPhonenumber = customerPhonenumber;
     }
 
-    public static String getCustomerAddress() {
+    public String getCustomerAddress() {
         return customerAddress;
     }
 
-    public static void setCustomerAddress(String customerAddress) {
-        Order.customerAddress = customerAddress;
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
     }
 
     public static ArrayList<orderproducts> getOrderproducts() {
         return orderproducts;
     }
 
-    // Default constructor
-    public static void setOrderproducts(ArrayList<orderproducts> orderproducts) {
-        Order.orderproducts = orderproducts;
-    }
-
     // Method to add a product to the order
-    public void addOrder(orderproducts products) {
+    public static void addOrder(orderproducts products) {
         if (products != null) {
             orderproducts.add(products);
         } else {
             System.out.println("Cannot add the products.");
         }
     }
-
-    // Method to get all products in the order
-    public static ArrayList<orderproducts> getAllOrders() {
-        return orderproducts;
-    }
-
+    
+    
 }

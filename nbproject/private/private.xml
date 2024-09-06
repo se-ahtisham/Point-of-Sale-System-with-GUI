@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Java/Gui/PointofSale_2/Point-of-Sale-System-with-GUI/src/entities/store.java</file>
+            <file>file:/D:/Java/Gui/PointofSale_2/Point-of-Sale-System-with-GUI/src/designs/updateOrder.java</file>
+            <file>file:/D:/Java/Gui/PointofSale_2/Point-of-Sale-System-with-GUI/src/designs/confirmorder.java</file>
+            <file>file:/D:/Java/Gui/PointofSale_2/Point-of-Sale-System-with-GUI/src/entities/Order.java</file>
+            <file>file:/D:/Java/Gui/PointofSale_2/Point-of-Sale-System-with-GUI/src/designs/invoice.java</file>
+        </group>
     </open-files>
 </project-private>

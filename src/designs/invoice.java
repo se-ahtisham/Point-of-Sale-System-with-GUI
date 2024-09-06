@@ -15,6 +15,7 @@ import entities.store;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -50,9 +51,7 @@ public class invoice extends javax.swing.JFrame {
     }
 
     void addvalues() {
-        // create New
         ArrayList<productclass> objects = store.printall();
-        //Set on Tabel
         if (objects != null) {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
@@ -103,6 +102,8 @@ public class invoice extends javax.swing.JFrame {
         jTextField30 = new javax.swing.JTextField();
         jTextField31 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
+        orderid = new javax.swing.JTextField();
+        jTextField33 = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -177,6 +178,11 @@ public class invoice extends javax.swing.JFrame {
         jTextField13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField13MouseClicked(evt);
+            }
+        });
+        jTextField13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField13ActionPerformed(evt);
             }
         });
 
@@ -565,18 +571,40 @@ public class invoice extends javax.swing.JFrame {
             }
         });
 
+        orderid.setEditable(false);
+        orderid.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        orderid.setForeground(new java.awt.Color(0, 102, 102));
+        orderid.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        orderid.setBorder(null);
+        orderid.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        orderid.setFocusable(false);
+
+        jTextField33.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jTextField33.setForeground(new java.awt.Color(0, 102, 102));
+        jTextField33.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField33.setText("Order ID:");
+        jTextField33.setBorder(null);
+        jTextField33.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTextField33.setFocusable(false);
+        jTextField33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField33MouseClicked(evt);
+            }
+        });
+        jTextField33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField33ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -600,17 +628,21 @@ public class invoice extends javax.swing.JFrame {
                                 .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(orderid, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -628,11 +660,17 @@ public class invoice extends javax.swing.JFrame {
                     .addComponent(jComboBox2)
                     .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(orderid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                .addGap(30, 30, 30))
         );
 
         jPanel8.setBackground(new java.awt.Color(0, 102, 102));
@@ -835,9 +873,7 @@ public class invoice extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -1018,9 +1054,73 @@ public class invoice extends javax.swing.JFrame {
 
     private void jTextField22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField22MouseClicked
         // TODO add your handling code here:
+        Order newOrder = new Order();
+        ArrayList<orderproducts> products = new ArrayList<>();
+        if (!jTextField29.getText().equals("xxxxxxxxxxxxx") && !jTextField29.getText().isEmpty()) {
+            newOrder.setCustomerId(Long.parseLong(jTextField29.getText()));
+            newOrder.setOrderId(Integer.parseInt(jTextField29.getText()));
+
+            if (!jTextField30.getText().equals("Name") && !jTextField30.getText().isEmpty()) {
+                newOrder.setCustomerName(jTextField30.getText());
+
+                if (!jTextField28.getText().equals("03xxxxxxxxx") && !jTextField28.getText().isEmpty()) {
+                    newOrder.setCustomerPhonenumber(jTextField28.getText());
+
+                    if (!jTextField31.getText().equals("Address") && !jTextField31.getText().isEmpty()) {
+                        newOrder.setCustomerAddress(jTextField31.getText());
+
+                        if (!jTextField11.getText().equals("Search by Name") && !jTextField11.getText().isEmpty()) {
+                            for (int i = 0; i < jComboBox2.getItemCount(); i++) {
+                                orderproducts orderProduct = new orderproducts();
+
+                                String findname = jComboBox2.getItemAt(i);
+                                int id = store.returnid(findname, Integer.parseInt(userquantity.getText()));
+                                int oldprice = store.returnprice(id);
+                                int newprice = oldprice * Integer.parseInt(jComboBox3.getItemAt(i).toString());
+                                String cat = store.returnCatagory(id);
+
+                                orderProduct.setId(id);
+                                orderProduct.setName(jComboBox2.getItemAt(i).toString());
+                                orderProduct.setPrice(newprice);
+                                orderProduct.setQuantity(Integer.parseInt(jComboBox3.getItemAt(i).toString()));
+                                orderProduct.setCategory(cat);
+
+                                products.add(orderProduct);
+                            }
+                            for (int i = 0; i < products.size(); i++) {
+                                newOrder.addOrder(products.get(i));
+                            }
+
+                            store.addOrder(newOrder);
+
+                            userquantity.setText(" ");
+                            userquantity.setForeground(new Color(204, 204, 204));
+                            jTextField11.setText("Search by Name");
+                            jTextField11.setForeground(new Color(204, 204, 204));
+                            jTextField12.setText("Search by ID");
+                            jTextField12.setForeground(new Color(204, 204, 204));
+
+                            addvalues();
+
+                        }
+                    } else {
+                        store.showerrormessage("Enter Address!");
+                    }
+                } else {
+                    store.showerrormessage("Enter Ph#!");
+                }
+            } else {
+                store.showerrormessage("Enter Name!");
+            }
+        } else {
+            store.showerrormessage("Enter ID!");
+        }
+
         this.setVisible(false);
         this.dispose();
         new confirmorder().setVisible(true);
+
+
     }//GEN-LAST:event_jTextField22MouseClicked
 
     private void jTextField23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField23MouseClicked
@@ -1119,79 +1219,33 @@ public class invoice extends javax.swing.JFrame {
             if (!jTextField11.getText().equals("Search by Name") && !jTextField11.getText().equals(" ")) {
                 results = store.serachstock(jTextField11.getText(), Integer.parseInt(userquantity.getText()));
                 if (results) {
-                    orderproducts orderProduct = new orderproducts();
-                    Order newOrder = new Order();
-                    if (!jTextField29.getText().equals("xxxxxxxxxxxxx")) {
-                        newOrder.setCustomerId(Long.parseLong(jTextField29.getText()));
-                        if (!jTextField30.getText().equals("Name")) {
-                            newOrder.setCustomerName(jTextField30.getText());
-                            if (!jTextField28.getText().equals("03xxxxxxxxx")) {
-                                newOrder.setCustomerPhonenumber(jTextField28.getText());
-                                if (!jTextField31.getText().equals("Address")) {
-                                    newOrder.setCustomerAddress(jTextField31.getText());
-                                    if (!jTextField11.getText().equals("Search by Name") && !jTextField11.getText().isEmpty()) {
-                                        orderProduct.setName(jTextField11.getText()); // Set the product name                                     
-                                        if (!userquantity.getText().equals(" ")) {
-                                            orderProduct.setQuantity(Integer.parseInt(userquantity.getText()));
 
-                                            // Other detais of same products as well
-                                            String findname = jTextField11.getText();
-                                            int id = store.returnid(findname, Integer.parseInt(userquantity.getText()));
-                                            orderProduct.setId(id);
+                    String findname = jTextField11.getText();
+                    int id = store.returnid(findname, Integer.parseInt(userquantity.getText()));
+                    store.updateStock(id, Integer.parseInt(userquantity.getText()));
 
-                                            int oldprice = store.returnprice(id);
-                                            int newprice = oldprice * Integer.parseInt(userquantity.getText());
-                                            orderProduct.setPrice(newprice);
-                                            System.out.println(newprice);
-                                            String cat = store.returnCatagory(id);
-                                            orderProduct.setCategory(cat);
+                    jComboBox2.addItem(jTextField11.getText());
+                    jComboBox2.setSelectedItem(jTextField11.getText());
+                    jComboBox3.addItem(userquantity.getText());
+                    jComboBox3.setSelectedItem(userquantity.getText());
 
-                                            newOrder.addOrder(orderProduct);
-                                            
-                                            store.updateStock(id, Integer.parseInt(userquantity.getText()));
+                    addvalues();
 
-                                            jComboBox2.addItem(jTextField11.getText());
-                                            jComboBox2.setSelectedItem(jTextField11.getText());
-                                            jComboBox3.addItem(userquantity.getText());
-                                            jComboBox3.setSelectedItem(userquantity.getText());
-                                            userquantity.setText(" ");
-                                            userquantity.setForeground(new Color(204, 204, 204));
-                                            jTextField11.setText("Search by Name");
-                                            jTextField11.setForeground(new Color(204, 204, 204));
-                                            jTextField12.setText("Search by ID");
-                                            jTextField12.setForeground(new Color(204, 204, 204));
-                                            addvalues();
-                                        } else {
-                                            store.showerrormessage("Enter Quantity!");
-                                        }
-                                    } else {
-                                        store.showerrormessage("Enter Name!");
-                                    }
-                                } else {
-                                    store.showerrormessage("Enter Address!");
-                                }
-                            } else {
-                                store.showerrormessage("Enter Ph#!");
-                            }
-                        } else {
-                            store.showerrormessage("Enter Name!");
-                        }
-                    } else {
-                        store.showerrormessage("Enter ID Card!");
-                    }
                 } else {
-                    store.showerrormessage("Out of stock!");
+                    store.showerrormessage("Out of Stock!");
                 }
 
-            }
+            }/*
             if (!jTextField12.getText().equals("Search by ID") && !jTextField12.getText().equals(" "))//through id
             {
                 results = store.serachstockbyid(Integer.parseInt(jTextField12.getText()), Integer.parseInt(userquantity.getText()));
                 if (results) {
                     orderproducts orderProduct = new orderproducts();
                     Order newOrder = new Order();
+                    Order newstaticOrder = new Order();
                     if (!jTextField29.getText().equals("xxxxxxxxxxxxx")) {
                         newOrder.setCustomerId(Long.parseLong(jTextField29.getText()));
+                        newOrder.setOrderId(Integer.parseInt(jTextField29.getText()));
                         if (!jTextField30.getText().equals("Name")) {
                             newOrder.setCustomerName(jTextField30.getText());
                             if (!jTextField28.getText().equals("03xxxxxxxxx")) {
@@ -1205,18 +1259,18 @@ public class invoice extends javax.swing.JFrame {
                                             orderProduct.setQuantity(Integer.parseInt(userquantity.getText()));
                                             int id = store.returnid(name, Integer.parseInt(userquantity.getText()));
                                             orderProduct.setId(id);
-                                            System.out.println(id);
 
                                             int oldprice = store.returnprice(id);
                                             int newprice = oldprice * Integer.parseInt(userquantity.getText());
                                             orderProduct.setPrice(newprice);
-                                            System.out.println(newprice);
+
                                             String cat = store.returnCatagory(id);
                                             orderProduct.setCategory(cat);
-                                            System.out.println(cat);
 
+                                            orderid.setText(jTextField29.getText());
                                             newOrder.addOrder(orderProduct);
-                                             store.updateStock(id, Integer.parseInt(userquantity.getText()));
+
+                                            store.updateStock(id, Integer.parseInt(userquantity.getText()));
 
                                             jComboBox2.addItem(name);
                                             jComboBox2.setSelectedItem(name);
@@ -1252,10 +1306,22 @@ public class invoice extends javax.swing.JFrame {
                     store.showerrormessage("Out of stock!");
                 }
 
-            }
+            }*/
 
         }
     }//GEN-LAST:event_userquantityKeyPressed
+
+    private void jTextField33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField33MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField33MouseClicked
+
+    private void jTextField33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField33ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField33ActionPerformed
+
+    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1323,12 +1389,14 @@ public class invoice extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField31;
+    private javax.swing.JTextField jTextField33;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField orderid;
     public static javax.swing.JTextField userquantity;
     // End of variables declaration//GEN-END:variables
 }

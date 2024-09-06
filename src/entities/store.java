@@ -1,12 +1,15 @@
+
 package entities;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
+
 public class store {
 
     private static ArrayList<productclass> productclass = new ArrayList<>();
     private static ArrayList<userclass> userclass = new ArrayList<>();
+    private static ArrayList<Order> orderlList = new ArrayList<>();
 
     public static void showerrormessage(String msg) {
         JOptionPane.showMessageDialog(null, msg);
@@ -33,6 +36,91 @@ public class store {
         userclass.add(new userclass("William Blue", "user7@gmail.com", "hiddenPass987", "What city were you born in?", "New York"));
         userclass.add(new userclass("Sophia Yellow", "user8@gmail.com", "unlockMe246", "What was the name of your first school?", "Sunrise Academy"));
     }
+    
+   public static void dummyOrder() {
+  
+    ArrayList<orderproducts> products1 = new ArrayList<>();
+    products1.add(new orderproducts(1, "Lays", 5, 10, "Snacks"));
+    products1.add(new orderproducts(2, "Pepsi", 3, 15, "Beverages"));
+    Order order1 = new Order(101, 123456789L, "John Doe", "555-1234", "123 Main St", products1);
+    orderlList.add(order1);
+
+    ArrayList<orderproducts> products2 = new ArrayList<>();
+    products2.add(new orderproducts(3, "KitKat", 7, 8, "Confectionery"));
+    products2.add(new orderproducts(4, "Oreo", 4, 12, "Biscuits"));
+    Order order2 = new Order(102, 987654321L, "Jane Smith", "555-5678", "456 Oak St", products2);
+    orderlList.add(order2);
+
+    ArrayList<orderproducts> products3 = new ArrayList<>();
+    products3.add(new orderproducts(5, "Maggi", 10, 20, "Noodles"));
+    products3.add(new orderproducts(6, "Tropicana", 2, 18, "Juices"));
+    Order order3 = new Order(103, 555666777L, "Alice Brown", "555-9876", "789 Pine St", products3);
+    orderlList.add(order3);
+    
+  
+}
+
+       
+    // For order
+    public static void addOrder(Order Obj) {
+        if (Obj != null) {
+            orderlList.add(Obj);
+           store.showerrormessage("Order Added!"); 
+            
+        } else {
+            store.showerrormessage("Order Not Added!");
+        }
+    }
+    
+    
+
+    public static Order searchOrder(int id) {
+        for (int i = 0; i < orderlList.size(); i++) {
+            if (id == orderlList.get(i).getOrderId()) {
+                return orderlList.get(i);
+            }
+        }
+        store.showerrormessage("Order Not Found");
+        return null;
+    }
+
+    public static void deleteOrder(int id) {
+        for (int i = 0; i < orderlList.size(); i++) {
+            if (id == orderlList.get(i).getOrderId()) {
+                orderlList.remove(orderlList.get(i));
+                store.showerrormessage("Order Deleted!");
+            }
+        }
+        store.showerrormessage("Order Not Found");
+    }
+
+    public static ArrayList<Order> printallorder() {
+        return orderlList;
+    }
+    
+     public static Order serachorderbyid(int id) {
+        for (int i = 0; i < orderlList.size(); i++) {
+            if (orderlList.get(i).getCustomerId()==id) {
+                return orderlList.get(i);
+            }
+        }
+        return null;
+    }
+    
+    
+     public static void Updateorder(int id, String name, String address, String phone) {
+        for (int i = 0; i < orderlList.size(); i++) {
+            if (orderlList.get(i).getCustomerId()==id) {
+                orderlList.get(i).setCustomerName(name);
+                orderlList.get(i).setCustomerAddress(address);
+                orderlList.get(i).setCustomerPhonenumber(phone);
+            }
+        }
+
+    }
+    
+    
+    
 
     public static ArrayList<productclass> printall() {
         return productclass;
@@ -153,6 +241,14 @@ public class store {
         }
 
     }
+  
+    
+    
+    
+    
+    
+    
+    
 
     public static int returnprice(int id) {
         for (int i = 0; i < productclass.size(); i++) {
@@ -195,8 +291,6 @@ public class store {
         productclass.remove(obj);
         store.showerrormessage("Delete SuccessFully!");
     }
-
-   
 
     // ----- For users:
     public static boolean adduser(userclass user) {
@@ -241,8 +335,8 @@ public class store {
         }
         return "Not correct user";
     }
-    
-     public static void updateUser(String email, userclass obj) {
+
+    public static void updateUser(String email, userclass obj) {
         for (int i = 0; i < userclass.size(); i++) {
             if (userclass.get(i).getUserEmail().equals(email)) {
                 userclass.get(i).setUserName(obj.getUserName());
@@ -253,14 +347,12 @@ public class store {
             }
         }
     }
-    
-     public static void deleteuser(userclass obj) {
+
+    public static void deleteuser(userclass obj) {
         userclass.remove(obj);
         store.showerrormessage("Delete SuccessFully!");
     }
-    
-    
-    
-    
-    
+
+  
+
 }

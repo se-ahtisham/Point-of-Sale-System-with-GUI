@@ -474,15 +474,20 @@ public class login extends javax.swing.JFrame {
     private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
         // TODO add your handling code here:
         if (!jTextField7.getText().equals("Email") && !jTextField7.getText().equals("")) {
-            boolean result = store.checkuseremail(jTextField7.getText());
-            if (result) {
-                store.showerrormessage("Email Already Register");
-            } else {
-                if (new String(jPasswordField1.getPassword()).equals("Password")) {
-                    jPasswordField1.setText("");
-                    jPasswordField1.setForeground(Color.BLACK);
+            if (Pattern.compile("[a-zA-Z0-9]+@gmail.com").matcher(jTextField7.getText()).matches()) {
+                boolean result = store.checkuseremail(jTextField7.getText());
+                if (result) {
+                    store.showerrormessage("Email Already Register");
+                } else {
+                    if (new String(jPasswordField1.getPassword()).equals("Password")) {
+                        jPasswordField1.setText("");
+                        jPasswordField1.setForeground(Color.BLACK);
+                    }
                 }
+            } else {
+                store.showerrormessage("Inavlid Email");
             }
+
         } else {
             store.showerrormessage("Enter Email");
         }

@@ -1236,7 +1236,7 @@ public class invoice extends javax.swing.JFrame {
                 }
 
             }/*
-            if (!jTextField12.getText().equals("Search by ID") && !jTextField12.getText().equals(" "))//through id
+            if (!jTextField12.getText().equals("Search by ID") && !jTextField12.getText().equals(" "))
             {
                 results = store.serachstockbyid(Integer.parseInt(jTextField12.getText()), Integer.parseInt(userquantity.getText()));
                 if (results) {

@@ -1054,6 +1054,7 @@ public class invoice extends javax.swing.JFrame {
 
     private void jTextField22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField22MouseClicked
         // TODO add your handling code here:
+
         Order newOrder = new Order();
         ArrayList<orderproducts> products = new ArrayList<>();
         if (!jTextField29.getText().equals("xxxxxxxxxxxxx") && !jTextField29.getText().isEmpty()) {
@@ -1187,8 +1188,9 @@ public class invoice extends javax.swing.JFrame {
 
     private void jTextField30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField30MouseClicked
         // TODO add your handling code here:
-        if (!jTextField29.getText().equals("xxxxxxxxxxxxx")) {
 
+        if (!jTextField29.getText().equals("xxxxxxxxxxxxx")) {
+            orderid.setText(jTextField29.getText());
             if (jTextField30.getText().equals("Name")) {
                 jTextField30.setText("");
                 jTextField30.setForeground(Color.BLACK);

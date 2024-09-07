@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package designs;
 
 import entities.productclass;
@@ -21,31 +17,60 @@ import javax.swing.table.DefaultTableModel;
 
 public class confirmorder extends javax.swing.JFrame {
 
-    private ArrayList<orderproducts> objects;
+    private ArrayList<orderproducts> orderlist = Order.getstaticOrderproducts();
 
     public confirmorder() {
         initComponents();
         this.setLocation(440, 150);
-        objects = Order.getOrderproducts();
-        addordervalues();
 
     }
 
-    void addordervalues() {
-        ArrayList<orderproducts> objects = Order.getOrderproducts();
+    public confirmorder(String id) {
+
+        initComponents();
+        confirmorderidfield.setText(id);
+        int newid = Integer.parseInt(confirmorderidfield.getText());
+        this.setLocation(440, 150);
+        orderlist = Order.getstaticOrderproducts();
+        addordervalues(newid);
+    }
+
+    void addordervalues(int newid) {
+
         DefaultTableModel model = (DefaultTableModel) finaltabel.getModel();
         model.setRowCount(0);
-        for (int i = 0; i < objects.size(); i++) {
+        for (int i = 0; i < orderlist.size(); i++) {
+            orderproducts order = orderlist.get(i);
+            if (store.printallorder().get(i).getOrderId() == newid) {
+                Object[] colarr = new Object[5];
+                colarr[0] = order.getId();
+                colarr[1] = order.getName();
+                colarr[2] = order.getQuantity();
+                colarr[3] = order.getPrice();
+                colarr[4] = order.getCategory();
+                model.addRow(colarr);
+            }
+        }
+    }
+
+    /*
+    void addordervalues() {
+        ArrayList<orderproducts> orderlist = Order.getstaticOrderproducts();
+        DefaultTableModel model = (DefaultTableModel) finaltabel.getModel();
+        model.setRowCount(0);
+        for (int i = 0; i < orderlist.size(); i++) {
             Object[] colarr = new Object[5];
-            colarr[0] = objects.get(i).getId();
-            colarr[1] = objects.get(i).getName();
-            colarr[2] = objects.get(i).getQuantity();
-            colarr[3] = objects.get(i).getPrice();
-            colarr[4] = objects.get(i).getCategory();
+            colarr[0] = orderlist.get(i).getId();
+            colarr[1] = orderlist.get(i).getName();
+            colarr[2] = orderlist.get(i).getQuantity();
+            colarr[3] = orderlist.get(i).getPrice();
+            colarr[4] = orderlist.get(i).getCategory();
             model.addRow(colarr);
         }
     }
 
+    
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,6 +92,8 @@ public class confirmorder extends javax.swing.JFrame {
         jTextField36 = new javax.swing.JTextField();
         jTextField28 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
+        confirmorderidfield = new javax.swing.JTextField();
+        jTextField34 = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jTextField18 = new javax.swing.JTextField();
         jTextField19 = new javax.swing.JTextField();
@@ -345,30 +372,65 @@ public class confirmorder extends javax.swing.JFrame {
         jTextField1.setBorder(null);
         jTextField1.setFocusable(false);
 
+        confirmorderidfield.setEditable(false);
+        confirmorderidfield.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        confirmorderidfield.setForeground(new java.awt.Color(0, 102, 102));
+        confirmorderidfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        confirmorderidfield.setBorder(null);
+        confirmorderidfield.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        confirmorderidfield.setFocusable(false);
+
+        jTextField34.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jTextField34.setForeground(new java.awt.Color(0, 102, 102));
+        jTextField34.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField34.setText("Order ID:");
+        jTextField34.setBorder(null);
+        jTextField34.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTextField34.setFocusable(false);
+        jTextField34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField34MouseClicked(evt);
+            }
+        });
+        jTextField34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField34ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                            .addGap(87, 87, 87)
-                            .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 69, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(confirmorderidfield))
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(69, 69, 69))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(confirmorderidfield, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -378,7 +440,7 @@ public class confirmorder extends javax.swing.JFrame {
                 .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -654,8 +716,9 @@ public class confirmorder extends javax.swing.JFrame {
     private void jTextField23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField23MouseClicked
         // TODO add your handling code here:
         int total = 0;
-        for (int i = 0; i < objects.size(); i++) {
-            total += objects.get(i).getPrice();
+        ArrayList<orderproducts> orderlist = Order.getstaticOrderproducts();
+        for (int i = 0; i < orderlist.size(); i++) {
+            total += orderlist.get(i).getPrice();
         }
         jTextField33.setForeground(Color.BLACK);
         jTextField33.setText(total + "");
@@ -710,6 +773,10 @@ public class confirmorder extends javax.swing.JFrame {
 
     private void jTextField28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField28MouseClicked
         // TODO add your handling code here:
+
+        DefaultTableModel model = (DefaultTableModel) finaltabel.getModel();
+        model.setRowCount(0);
+
         this.setVisible(false);
         this.dispose();
         new order().setVisible(true);
@@ -719,11 +786,11 @@ public class confirmorder extends javax.swing.JFrame {
         // TODO add your handling code here:
         int selectedRow = finaltabel.getSelectedRow();
         String name = finaltabel.getValueAt(selectedRow, 1).toString();
-
+        ArrayList<orderproducts> orderlist = Order.getstaticOrderproducts();
         if (selectedRow >= 0) {
             int response = JOptionPane.showConfirmDialog(null, "Do you want to delete " + name);
             if (response == 0) {
-                objects.remove(selectedRow);
+                orderlist.remove(selectedRow);
                 DefaultTableModel model = (DefaultTableModel) finaltabel.getModel();
                 model.removeRow(selectedRow);
             }
@@ -749,6 +816,14 @@ public class confirmorder extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jTextField36KeyPressed
+
+    private void jTextField34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField34MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField34MouseClicked
+
+    private void jTextField34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField34ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField34ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -786,6 +861,7 @@ public class confirmorder extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField confirmorderidfield;
     private javax.swing.JTable finaltabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel10;
@@ -809,6 +885,7 @@ public class confirmorder extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField31;
     private javax.swing.JTextField jTextField32;
     private javax.swing.JTextField jTextField33;
+    private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField36;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;

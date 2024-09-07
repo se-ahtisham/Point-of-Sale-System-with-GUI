@@ -10,8 +10,8 @@ public class Order {
     private String customerPhonenumber;
     private String customerAddress;
 
-    private static ArrayList<orderproducts> orderproducts = new ArrayList<>();
-  
+    private ArrayList<orderproducts> orderproducts = new ArrayList<>();
+    private static ArrayList<orderproducts> orderstaticproducts = new ArrayList<>();
 
     public Order() {
     }
@@ -65,18 +65,28 @@ public class Order {
         this.customerAddress = customerAddress;
     }
 
-    public static ArrayList<orderproducts> getOrderproducts() {
+    public ArrayList<orderproducts> getOrderproducts() {
         return orderproducts;
     }
 
-    // Method to add a product to the order
-    public static void addOrder(orderproducts products) {
+    public static ArrayList<orderproducts> getstaticOrderproducts() {
+        return orderstaticproducts;
+    }
+
+    public void addOrder(orderproducts products) {
         if (products != null) {
             orderproducts.add(products);
         } else {
             System.out.println("Cannot add the products.");
         }
     }
-    
-    
+
+    public static void addstaticOrder(orderproducts products) {
+        if (products != null) {
+            orderstaticproducts.add(products);
+        } else {
+            System.out.println("Cannot add the products.");
+        }
+    }
+
 }

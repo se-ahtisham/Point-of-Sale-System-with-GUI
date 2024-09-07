@@ -15,7 +15,7 @@ public class updateOrder extends javax.swing.JFrame {
     public updateOrder() {
         initComponents();
         this.setLocation(450, 100);
-        store.dummyOrder();
+        // store.dummyOrder();
         addvaluesorder();
         
     }
@@ -749,18 +749,24 @@ public class updateOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField13MouseClicked
 
     private void ordertabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ordertabelMouseClicked
-        // TODO add your handling code here:        
+        // TODO add your handling code here:  
+        
         int selectedRow = ordertabel.getSelectedRow();
         long orderid = (Long) ordertabel.getValueAt(selectedRow, 1);
         long customerid = (Long) ordertabel.getValueAt(selectedRow, 1);
+        
         if (selectedRow >= 0) {
             ArrayList<Order> objects = store.printallorder();
             DefaultTableModel model = (DefaultTableModel) producttabel.getModel();
+            
             model.setRowCount(0);
+            
             for (int i = 0; i < objects.size(); i++) {
                 Order order = objects.get(i);
                 if (order.getCustomerId() == customerid || order.getOrderId() == orderid) {
+                    
                     ArrayList<orderproducts> products = order.getOrderproducts();
+                    
                     for (int j = 0; j < products.size(); j++) {
                         orderproducts product = products.get(j);
                         Object[] colarr = new Object[2];

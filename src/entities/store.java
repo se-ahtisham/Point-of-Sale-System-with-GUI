@@ -67,6 +67,15 @@ public class store {
         }
     }
 
+    
+      
+     public static void deleteorder(Order obj) {
+        orderlList.remove(obj);
+        store.showerrormessage("Delete SuccessFully!");
+    }
+    
+    
+    
     public static Order searchOrder(int id) {
         for (int i = 0; i < orderlList.size(); i++) {
             if (id == orderlList.get(i).getOrderId()) {
@@ -365,5 +374,10 @@ public class store {
         userclass.remove(obj);
         store.showerrormessage("Delete SuccessFully!");
     }
+  
+    
+    
+    
+    
 
 }

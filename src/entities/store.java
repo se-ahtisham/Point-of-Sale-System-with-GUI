@@ -77,6 +77,20 @@ public class store {
         store.showerrormessage("Order Not Found");
         return null;
     }
+    
+    
+     public static boolean searchOrderbyid (int id) {
+        for (int i = 0; i < orderlList.size(); i++) {
+            if (id == orderlList.get(i).getOrderId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
+    
+    
 
     public static void deleteOrder(int id) {
         for (int i = 0; i < orderlList.size(); i++) {

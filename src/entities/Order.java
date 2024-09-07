@@ -11,6 +11,7 @@ public class Order {
     private String customerAddress;
 
     private ArrayList<orderproducts> orderproducts = new ArrayList<>();
+    //for tabel
     private static ArrayList<orderproducts> orderstaticproducts = new ArrayList<>();
 
     public Order() {

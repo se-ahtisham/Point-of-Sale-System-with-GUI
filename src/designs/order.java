@@ -158,6 +158,11 @@ public class order extends javax.swing.JFrame {
         });
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/searchOrder.png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/refud.png"))); // NOI18N
 
@@ -536,10 +541,15 @@ public class order extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
         new updateOrder().setVisible(true);
-        
-        
-        
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+         this.setVisible(false);
+        this.dispose();
+        new searchOrder().setVisible(true);
+        
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments

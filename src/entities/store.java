@@ -36,7 +36,6 @@ public class store {
     }
 
     public static void dummyOrder() {
-
         ArrayList<orderproducts> products1 = new ArrayList<>();
         products1.add(new orderproducts(1, "Lays", 5, 10, "Snacks"));
         products1.add(new orderproducts(2, "Pepsi", 3, 15, "Beverages"));

@@ -14,8 +14,7 @@ public class updateOrder extends javax.swing.JFrame {
     
     public updateOrder() {
         initComponents();
-        this.setLocation(450, 100);
-        // store.dummyOrder();
+        this.setLocation(380, 150);
         addvaluesorder();
         
     }
@@ -602,66 +601,7 @@ public class updateOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_orderidKeyPressed
 
     private void jTextField12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField12MouseClicked
-        // TODO add your handling code here:
-       /* if (!orderid.getText().equals("Search by Order-ID") && !orderid.getText().equals(" ")) {
-           int id = Integer.parseInt(orderid.getText());
-           Order obj = store.serachorderbyid(id);
-            if (obj != null) {
-                String name = namefield.getText();
-                String address = addressfield.getText();
-                String phone = phonefield.getText();
 
-                store.Updateorder(id, name, address, phone);
-
-                orderid.setText("Search by Order-ID");
-                orderid.setForeground(new Color(204, 204, 204));
-
-                namefield.setText("Customer-Name");
-                namefield.setForeground(new Color(204, 204, 204));
-
-                addressfield.setText("Customer-Address");
-                addressfield.setForeground(new Color(204, 204, 204));
-
-                phonefield.setText("Customer-PhoneNumber");
-                phonefield.setForeground(new Color(204, 204, 204));
-
-                addvaluesorder();
-
-            } else {
-                store.showerrormessage("Not Found");
-            }
-
-        } else {
-            store.showerrormessage("Search Email");
-        }*/
-
-        /*if (!orderid.getText().equals("Search by Email") && !orderid.getText().equals(" ")) {
-            userclass obj = store.serachUserByemail(orderid.getText());
-            if (obj != null) {
-                this.setSinglevalueontabeluser(obj);
-                String newemail = orderid.getText();
-                String newname = name.getText();
-                String newquestion = question.getSelectedItem().toString();
-                String newpassword = password.getText();
-                String newanswer = answer.getText();
-                store.Updateuserfortabel(newemail, newname, newquestion, newpassword, newanswer);
-                orderid.setText("Search by Email");
-                orderid.setForeground(new Color(204, 204, 204));
-                name.setText("Name");
-                name.setForeground(new Color(204, 204, 204));
-                question.setSelectedItem("Set Security Question");
-                password.setText("Password");
-                password.setForeground(new Color(204, 204, 204));
-                answer.setText("Answer");
-                answer.setForeground(new Color(204, 204, 204));
-                addvaluesuser();
-
-            } else {
-                store.showerrormessage("Not Found");
-            }
-        } else {
-            store.showerrormessage("Serch Email");
-        }*/
     }//GEN-LAST:event_jTextField12MouseClicked
 
     private void namefieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_namefieldMouseClicked
